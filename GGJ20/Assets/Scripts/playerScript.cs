@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class playerScript : MonoBehaviour 
+public class playerScript : MonoBehaviour
 {
 
     [SerializeField] private LayerMask platformMask;
@@ -22,10 +22,12 @@ public class playerScript : MonoBehaviour
     private List<Weapon> weaponList = new List<Weapon>();
     private Weapon currentWeapon;
 
+    public bool isGrounded = false;
+    public bool jumpStarted = false;
+
     private void OnEnable()
     {
         weaponList.Add(new Weapon("Punch", 1, 5, 0.6f, false));
-
         currentWeapon = weaponList[0];
     }
 
@@ -39,7 +41,7 @@ public class playerScript : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate() 
+    void FixedUpdate()
     {
         currentTime += Time.deltaTime;
 
@@ -60,21 +62,24 @@ public class playerScript : MonoBehaviour
         {
             Debug.Log("ok je saute");
         }
-        if (Input.GetButton("Jump") && body.simulated)
+        if (Input.GetButton("Jump") && isGrounded && !jumpStarted)
         {
-            body.simulated = false;
             Debug.Log("ok je saute et je suis pas en l'air ");
-
+            jumpStarted = true;
+            isGrounded = false;
             body.AddForce(Vector3.up * jumpForce);
         }
-        
+        if (!Input.GetButton("Jump"))
+        {
+            jumpStarted = false;
+        }
+
 
         if (Input.GetButton("Fire1") && currentTime > currentWeapon._cooldown)
         {
 
             Debug.Log("Here");
             nextHit = currentTime + currentWeapon._cooldown;
-
 
 
             nextHit = nextHit - currentTime;
@@ -86,5 +91,13 @@ public class playerScript : MonoBehaviour
     {
         RaycastHit2D ray = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0f, Vector2.down, 1f, platformMask);
         return ray.collider != null;
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Platform")
+        {
+            isGrounded = true;
+        }
     }
 }
