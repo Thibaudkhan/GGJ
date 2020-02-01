@@ -24,7 +24,6 @@ public class playerScript : MonoBehaviour
     private void OnEnable()
     {
         weaponList.Add(new Weapon("Punch", 1, 5, 0.6f, false));
-
         currentWeapon = weaponList[0];
     }
 
@@ -65,7 +64,6 @@ public class playerScript : MonoBehaviour
 
             Debug.Log("Here");
             nextHit = currentTime + currentWeapon._cooldown;
-
 
 
             nextHit = nextHit - currentTime;
