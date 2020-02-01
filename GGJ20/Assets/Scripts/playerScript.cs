@@ -22,8 +22,8 @@ public class playerScript : MonoBehaviour
     private float nextHit = 0.0f;
     private float nextJump = 0.0f;
 
-    private List<Weapon> weaponList = new List<Weapon>();
-    private Weapon currentWeapon;
+    private List<Weapon_Model> weaponList = new List<Weapon_Model>();
+    private Weapon_Model currentWeapon;
 
     public bool isGrounded = false;
     public bool jumpStarted = false;
@@ -32,7 +32,7 @@ public class playerScript : MonoBehaviour
 
     private void OnEnable()
     {
-        weaponList.Add(new Weapon("Punch", 1, 5, 0.6f, false));
+        weaponList.Add(new Weapon_Model("Punch", 1, 5, 0.6f, false));
         currentWeapon = weaponList[0];
     }
 
