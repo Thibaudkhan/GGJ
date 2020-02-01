@@ -14,6 +14,20 @@ public class playerScript : MonoBehaviour
     public float movementSpeed = 0.1f;
     public float jumpForce = 30f;
 
+    private float currentTime = 0.0f;
+
+    private float nextHit = 0.0f;
+
+    private List<Weapon> weaponList = new List<Weapon>();
+    private Weapon currentWeapon;
+
+    private void OnEnable()
+    {
+        weaponList.Add(new Weapon("Punch", 1, 5, 0.6f, false));
+
+        currentWeapon = weaponList[0];
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +39,8 @@ public class playerScript : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate() 
     {
+        currentTime += Time.deltaTime;
+
         float hMovement = Input.GetAxis("Horizontal");
 
         if (hMovement > 0)
@@ -42,6 +58,18 @@ public class playerScript : MonoBehaviour
         if (Input.GetButton("Jump") && IsGrounded())
         {
             body.AddForce(Vector3.up * jumpForce);
+        }
+
+        if (Input.GetButton("Fire1") && currentTime > currentWeapon._cooldown)
+        {
+
+            Debug.Log("Here");
+            nextHit = currentTime + currentWeapon._cooldown;
+
+
+
+            nextHit = nextHit - currentTime;
+            currentTime = 0f;
         }
     }
 
