@@ -16,14 +16,17 @@ public class playerScript : MonoBehaviour
     public float jumpForce = 30f;
 
     private float currentTime = 0.0f;
+    private float jumpCooldown = 0.6f;
 
     private float nextHit = 0.0f;
+    private float nextJump = 0.0f;
 
     private List<Weapon> weaponList = new List<Weapon>();
     private Weapon currentWeapon;
 
     public bool isGrounded = false;
     public bool jumpStarted = false;
+    public bool hasDoubleJump = true;
 
     private void OnEnable()
     {
@@ -53,32 +56,33 @@ public class playerScript : MonoBehaviour
             //sprite.flipX = true;
 
         }
-        else if (hMovement < 0)
-        {
+        else if (hMovement < 0){
             transform.position += Vector3.left * movementSpeed;
             //sprite.flipX = false;
         }
-        if (Input.GetButton("Jump"))
-        {
-            Debug.Log("ok je saute");
-        }
-        if (Input.GetButton("Jump") && isGrounded && !jumpStarted)
-        {
-            Debug.Log("ok je saute et je suis pas en l'air ");
-            jumpStarted = true;
+
+        if (Input.GetButton("Jump") && isGrounded && !jumpStarted && currentTime > jumpCooldown) {
             isGrounded = false;
+            jumpStarted = true;
+            nextJump = currentTime + jumpCooldown;
+            nextJump = nextJump - currentTime;
+            currentTime = 0f;
             body.AddForce(Vector3.up * jumpForce);
         }
-        if (!Input.GetButton("Jump"))
+
+        if (!Input.GetButton("Jump") && isGrounded)
         {
             jumpStarted = false;
         }
 
+        if (jumpStarted) {
+            isGrounded = false;
+        }
 
         if (Input.GetButton("Fire1") && currentTime > currentWeapon._cooldown)
         {
 
-            Debug.Log("Here");
+            Debug.Log("Fire");
             nextHit = currentTime + currentWeapon._cooldown;
 
 
@@ -99,5 +103,19 @@ public class playerScript : MonoBehaviour
         {
             isGrounded = true;
         }
+        
     }
-}
+
+    private void OnCollisionExit2D(Collision2D collision) {
+        if (collision.gameObject.tag == "Platform") {
+            isGrounded = true;
+        }
+
+        if (!hasDoubleJump) {
+            isGrounded = false;
+        }
+        else {
+            isGrounded = true;
+            }
+        }
+    }
