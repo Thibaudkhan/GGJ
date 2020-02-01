@@ -86,6 +86,9 @@ TextureImporter:
   - first:
       213: 2882676572368320685
     second: Tilemap_Londres_27
+  - first:
+      213: -8274020619895905839
+    second: Tilemap_Londres_28
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -184,7 +187,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 44aa4c6ebcbdf9e4bbc82efec07c1a94
+      spriteID: 267c6056005de42439385968c985afe6
       internalID: 7447362130625046571
       vertices: []
       indices: 
@@ -205,7 +208,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6bb4c81c23714cc4d9bc584d355e4f28
+      spriteID: 05d35ae3a298d8743a033a2d50fb1cae
       internalID: -6115885441796843681
       vertices: []
       indices: 
@@ -226,7 +229,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ead43247942b60f489b9d217746a7970
+      spriteID: 2e38f40e6a96b184d91cc5586e9bde2b
       internalID: -3309686622334770128
       vertices: []
       indices: 
@@ -247,7 +250,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ff050ae4cb9f31d46bdacb49e25e2658
+      spriteID: 6a63428923819cc47b42467e3c3498dc
       internalID: -3569365768969137537
       vertices: []
       indices: 
@@ -257,7 +260,7 @@ TextureImporter:
       name: Tilemap_Londres_4
       rect:
         serializedVersion: 2
-        x: 160
+        x: 128
         y: 288
         width: 32
         height: 32
@@ -268,7 +271,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6c1b6b24bcb263448be39514081e682c
+      spriteID: e5b8ca18442667e4598b2bb54971f644
       internalID: 5006840866179407304
       vertices: []
       indices: 
@@ -278,7 +281,7 @@ TextureImporter:
       name: Tilemap_Londres_5
       rect:
         serializedVersion: 2
-        x: 192
+        x: 160
         y: 288
         width: 32
         height: 32
@@ -289,7 +292,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 956c8ddaffd3d9f4599a0244cffa1d67
+      spriteID: b5c3cd4e1c6106845b49e1b82abbd9ee
       internalID: 7884218799207586298
       vertices: []
       indices: 
@@ -299,6 +302,27 @@ TextureImporter:
       name: Tilemap_Londres_6
       rect:
         serializedVersion: 2
+        x: 192
+        y: 288
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ef4b55d53278344080c399308f0ac3e
+      internalID: 8289662364639538639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tilemap_Londres_7
+      rect:
+        serializedVersion: 2
         x: 224
         y: 288
         width: 32
@@ -310,14 +334,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 191e9dc292850714e850331cf633c57b
-      internalID: 8289662364639538639
+      spriteID: 11ca660a31986fb4ea22dfded4e1a603
+      internalID: 9177740216260593089
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tilemap_Londres_7
+      name: Tilemap_Londres_8
       rect:
         serializedVersion: 2
         x: 0
@@ -331,14 +355,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fea8dc57422bc3a4d9025e1e66b2d015
-      internalID: 9177740216260593089
+      spriteID: b8fb1452875aaeb45a6be17802f3d37a
+      internalID: -1458937118433440195
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tilemap_Londres_8
+      name: Tilemap_Londres_9
       rect:
         serializedVersion: 2
         x: 32
@@ -352,14 +376,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f155f0c6de031e54f81a4d99a46d0dfa
-      internalID: -1458937118433440195
+      spriteID: 27d3cd1b8bf9bbf4ca19943f8b2ed2ce
+      internalID: -7619623592441076609
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tilemap_Londres_9
+      name: Tilemap_Londres_10
       rect:
         serializedVersion: 2
         x: 64
@@ -373,14 +397,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1507342f6c90c19409a587b5e0e0965f
-      internalID: -7619623592441076609
+      spriteID: d29648e7a7d29654fb2de0835bdcfbe0
+      internalID: -3501736487564527450
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tilemap_Londres_10
+      name: Tilemap_Londres_11
       rect:
         serializedVersion: 2
         x: 96
@@ -394,14 +418,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 91894c81032babb4c9f7049f9eb41069
-      internalID: -3501736487564527450
+      spriteID: 7d3c97a3791f3f64ebbbd389c513f027
+      internalID: 8721765855253832549
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tilemap_Londres_11
+      name: Tilemap_Londres_12
       rect:
         serializedVersion: 2
         x: 128
@@ -415,14 +439,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0fb9c7a0920a74242bfeab79fb189403
-      internalID: 8721765855253832549
+      spriteID: 8cd951611b02fa244940e0b44d666cd1
+      internalID: -8516690907020422599
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tilemap_Londres_12
+      name: Tilemap_Londres_13
       rect:
         serializedVersion: 2
         x: 160
@@ -436,14 +460,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f79102d9b99ebb8458e41011dd8c2cf1
-      internalID: -8516690907020422599
+      spriteID: 3030cc7ac7aea2b48aff5b759dfb0d7d
+      internalID: 1638361312555549692
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tilemap_Londres_13
+      name: Tilemap_Londres_14
       rect:
         serializedVersion: 2
         x: 192
@@ -457,14 +481,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d12c60e23b01e47418649a690a475bb8
-      internalID: 1638361312555549692
+      spriteID: a40de4d6de3311f4d9dfc863179a5a6d
+      internalID: -2473975184076157848
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tilemap_Londres_14
+      name: Tilemap_Londres_15
       rect:
         serializedVersion: 2
         x: 224
@@ -478,14 +502,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 119df4acbc757d64ca5b9cfab2cfa4e3
-      internalID: -2473975184076157848
+      spriteID: d1699088424de0c46a617fe8bf408ef0
+      internalID: -307968573299893076
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tilemap_Londres_15
+      name: Tilemap_Londres_16
       rect:
         serializedVersion: 2
         x: 0
@@ -499,14 +523,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4fe2546f7e189d24f96c859f9ee52f4c
-      internalID: -307968573299893076
+      spriteID: 9fa96351b1ebdbe43a22812a0405c3fd
+      internalID: 832849691770618092
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tilemap_Londres_16
+      name: Tilemap_Londres_17
       rect:
         serializedVersion: 2
         x: 32
@@ -520,14 +544,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a8846094072967d4db943470dead8c44
-      internalID: 832849691770618092
+      spriteID: f3c18b8433b2d6741a6ee7e6de77728d
+      internalID: 6188525827486240578
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tilemap_Londres_17
+      name: Tilemap_Londres_18
       rect:
         serializedVersion: 2
         x: 64
@@ -541,14 +565,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 22b794606aae2394fa6745647d4aa8ba
-      internalID: 6188525827486240578
+      spriteID: 2f9848a136529db4889f74fd6a8ad7c7
+      internalID: -345363933676834819
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tilemap_Londres_18
+      name: Tilemap_Londres_19
       rect:
         serializedVersion: 2
         x: 96
@@ -562,14 +586,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aa780b2abf3faae44a56fe67d5e23efa
-      internalID: -345363933676834819
+      spriteID: 807cb69e2c5c1ca4cabc3c656959a0ce
+      internalID: -3555416663192060129
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tilemap_Londres_19
+      name: Tilemap_Londres_20
       rect:
         serializedVersion: 2
         x: 128
@@ -583,14 +607,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3b1f5a99dd47f284390387e3379b6bdd
-      internalID: -3555416663192060129
+      spriteID: 2b89c60f6c6363d45946a3b25c5d1589
+      internalID: 6178084033011879024
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tilemap_Londres_20
+      name: Tilemap_Londres_21
       rect:
         serializedVersion: 2
         x: 192
@@ -604,14 +628,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 063ce8a4b67b7fb428b165149c33a3f6
-      internalID: 6178084033011879024
+      spriteID: 1eafc45773250824ebb8e2dce51771fb
+      internalID: 2550660426713708391
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tilemap_Londres_21
+      name: Tilemap_Londres_22
       rect:
         serializedVersion: 2
         x: 0
@@ -625,14 +649,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 90879bf2860bb2846abdf2bef0679395
-      internalID: 2550660426713708391
+      spriteID: 130fae6c1d5e82d4f8f76a87a23bbef6
+      internalID: 4162667504963471515
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tilemap_Londres_22
+      name: Tilemap_Londres_23
       rect:
         serializedVersion: 2
         x: 32
@@ -646,14 +670,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 81eacc3ab2cb6fb489968ed09346beab
-      internalID: 4162667504963471515
+      spriteID: 1cb22587cdc7f014aac8e8bc8b98b4ac
+      internalID: 4897480577334911194
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tilemap_Londres_23
+      name: Tilemap_Londres_24
       rect:
         serializedVersion: 2
         x: 64
@@ -667,14 +691,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 838eb23edcf788f42b524c17f5359764
-      internalID: 4897480577334911194
+      spriteID: 901edc5104ef5474db10a198d8b2dce6
+      internalID: -7219131417131361839
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tilemap_Londres_24
+      name: Tilemap_Londres_25
       rect:
         serializedVersion: 2
         x: 96
@@ -688,14 +712,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4846a5bb5f0366249991aa473a711f64
-      internalID: -7219131417131361839
+      spriteID: da9830799129ce6409851596960120e6
+      internalID: -1976571921725825059
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tilemap_Londres_25
+      name: Tilemap_Londres_26
       rect:
         serializedVersion: 2
         x: 128
@@ -709,14 +733,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 973a4a99d48bd3e418e48445b099e11a
-      internalID: -1976571921725825059
+      spriteID: 0f604c7b4c1e937459abbbf678a2fdb5
+      internalID: -2886662948273575109
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tilemap_Londres_26
+      name: Tilemap_Londres_27
       rect:
         serializedVersion: 2
         x: 160
@@ -730,14 +754,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: af87ed946eb410142a84fa8b584acb0d
-      internalID: -2886662948273575109
+      spriteID: fd05cf55b55e8ff4790e7f94a0706110
+      internalID: 2882676572368320685
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tilemap_Londres_27
+      name: Tilemap_Londres_28
       rect:
         serializedVersion: 2
         x: 192
@@ -751,8 +775,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f60cd8c26cfd097419a24dfc764936af
-      internalID: 2882676572368320685
+      spriteID: 64845530c05b5b54698b7e46d9a32e9c
+      internalID: -8274020619895905839
       vertices: []
       indices: 
       edges: []
@@ -760,7 +784,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: c5113445ffdf2fc4181e4d18c0897c8c
+    spriteID: 7dce985daaff2fa4e873650a2d847489
     internalID: 0
     vertices: []
     indices: 
