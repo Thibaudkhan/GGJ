@@ -3,7 +3,7 @@
 # Get latest from https://github.com/github/gitignore/blob/master/Unity.gitignore
 #
 Temp/
-Library/
+GGJ20/Library/
 
 /[Ll]ibrary/
 /[Tt]emp/
