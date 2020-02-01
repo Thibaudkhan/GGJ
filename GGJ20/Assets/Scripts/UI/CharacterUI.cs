@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class CharacterUI : MonoBehaviour
 {
-     private GameObject pauseMenuUI;
      private GameObject text;
     [SerializeField] private Text lifeText;
     [SerializeField] private Text goldText;
