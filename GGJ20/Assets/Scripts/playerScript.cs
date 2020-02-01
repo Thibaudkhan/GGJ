@@ -61,13 +61,13 @@ public class playerScript : MonoBehaviour
         if (hMovement > 0)
         {
             transform.position += Vector3.right * movementSpeed;
-            sprite.flipX = true;
+            //sprite.flipX = true;
 
         }
         else if (hMovement < 0)
         {
             transform.position += Vector3.left * movementSpeed;
-            sprite.flipX = false;
+            //sprite.flipX = false;
         }
     }
 
@@ -91,20 +91,25 @@ public class playerScript : MonoBehaviour
         {
             nextHit = currentTime + currentWeapon._cooldown;
 
-            if (CheckHit())
+            /*if (CheckHit())
             {
                 Debug.Log("Here");
-            }
+            }*/
 
             nextHit = nextHit - currentTime;
             currentTime = 0f;
         }
     }
 
+    private void isTouched()
+    {
+
+    }
+
     // TODO: Fixer cette fonction pour que le raycast puisse toucher un gameobject qui est sur le layer enemy (revoie true si c'est le cas)
-    private bool CheckHit()
+    /*private bool CheckHit()
     {
         RaycastHit2D cast = Physics2D.BoxCast(sprite.bounds.center, boxCollider.bounds.size, 0f, ((sprite.flipX) ? Vector2.right : Vector2.left), currentWeapon._range, enemyMask);
         return cast.collider != null;
-    }
+    }*/
 }
