@@ -16,6 +16,7 @@ public class playerScript : MonoBehaviour
     public float jumpForce = 30f;
 
     private float currentTime = 0.0f;
+    private float currentJumpTime = 0.0f;
     private float jumpCooldown = 0.6f;
 
     private float nextHit = 0.0f;
@@ -27,6 +28,7 @@ public class playerScript : MonoBehaviour
     public bool isGrounded = false;
     public bool jumpStarted = false;
     public bool hasDoubleJump = true;
+    private bool canJump = true;
 
     private void OnEnable()
     {
@@ -47,6 +49,7 @@ public class playerScript : MonoBehaviour
     void FixedUpdate()
     {
         currentTime += Time.deltaTime;
+        currentJumpTime += Time.deltaTime;
 
         float hMovement = Input.GetAxis("Horizontal");
 
@@ -56,66 +59,47 @@ public class playerScript : MonoBehaviour
             //sprite.flipX = true;
 
         }
-        else if (hMovement < 0){
+        else if (hMovement < 0)
+        {
             transform.position += Vector3.left * movementSpeed;
             //sprite.flipX = false;
         }
 
-        if (Input.GetButton("Jump") && isGrounded && !jumpStarted && currentTime > jumpCooldown) {
-            isGrounded = false;
-            jumpStarted = true;
-            nextJump = currentTime + jumpCooldown;
-            nextJump = nextJump - currentTime;
-            currentTime = 0f;
+        if (Input.GetButton("Jump") && (IsGrounded()) && canJump /* && currentJumpTime > jumpCooldown */)
+        {
             body.AddForce(Vector3.up * jumpForce);
         }
 
-        if (!Input.GetButton("Jump") && isGrounded)
-        {
-            jumpStarted = false;
-        }
-
-        if (jumpStarted) {
-            isGrounded = false;
-        }
-
         if (Input.GetButton("Fire1") && currentTime > currentWeapon._cooldown)
-        {
+            {
 
-            Debug.Log("Fire");
-            nextHit = currentTime + currentWeapon._cooldown;
+                Debug.Log("Fire");
+                nextHit = currentTime + currentWeapon._cooldown;
 
 
-            nextHit = nextHit - currentTime;
-            currentTime = 0f;
-        }
+                nextHit = nextHit - currentTime;
+                currentTime = 0f;
+            }
+        //}
     }
 
     private bool IsGrounded()
     {
-        RaycastHit2D ray = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0f, Vector2.down, 1f, platformMask);
+        RaycastHit2D ray = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size / 2, 0f, Vector2.down, 0.5f, platformMask);
         return ray.collider != null;
     }
 
-    private void OnCollisionStay2D(Collision2D collision)
+    private void disableMovement()
     {
-        if (collision.gameObject.tag == "Platform")
-        {
-            isGrounded = true;
-        }
-        
+        canJump = false;
+        StartCoroutine(activateJump());
     }
 
-    private void OnCollisionExit2D(Collision2D collision) {
-        if (collision.gameObject.tag == "Platform") {
-            isGrounded = true;
-        }
+    IEnumerator activateJump()
+    {
+        yield return new WaitForSeconds(0.6f);
 
-        if (!hasDoubleJump) {
-            isGrounded = false;
-        }
-        else {
-            isGrounded = true;
-            }
-        }
+        canJump = true;
+        //isJumping = true;
     }
+}
