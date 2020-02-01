@@ -1,5 +1,5 @@
 ﻿using System;
-public class Enemy {
+public class Enemy_Model {
     public String _name;
     public int _damages;
     public int _range;
@@ -8,9 +8,11 @@ public class Enemy {
     public String _type;
     public int _speed;
     public Boolean isAlive;
+    public int _aggroRange;
 
 
-    public Enemy(String name, int damages, int range, float cooldown, int hp, String type, int speed, bool isAlive) {
+
+    public Enemy_Model(String name, int damages, int range, float cooldown, int hp, String type, int speed, bool isAlive, int aggroRange) {
         this._name = name;
         this._damages = damages;
         this._range = range;
@@ -19,5 +21,6 @@ public class Enemy {
         this._type = type;
         this._speed = speed;
         this.isAlive = isAlive;
+        this._aggroRange = aggroRange;
         }
     }
