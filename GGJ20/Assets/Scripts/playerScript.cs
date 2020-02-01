@@ -10,6 +10,7 @@ public class playerScript : MonoBehaviour
     private Rigidbody2D body;
     private BoxCollider2D boxCollider;
     private SpriteRenderer sprite;
+    CharacterController controller;
 
     public float movementSpeed = 0.1f;
     public float jumpForce = 30f;
@@ -34,6 +35,7 @@ public class playerScript : MonoBehaviour
         body = GetComponent<Rigidbody2D>();
         boxCollider = GetComponent<BoxCollider2D>();
         sprite = GetComponent<SpriteRenderer>();
+        controller = GetComponent<CharacterController>();
     }
 
     // Update is called once per frame
@@ -46,19 +48,26 @@ public class playerScript : MonoBehaviour
         if (hMovement > 0)
         {
             transform.position += Vector3.right * movementSpeed;
-            sprite.flipX = true;
+            //sprite.flipX = true;
 
         }
         else if (hMovement < 0)
         {
             transform.position += Vector3.left * movementSpeed;
-            sprite.flipX = false;
+            //sprite.flipX = false;
         }
-
-        if (Input.GetButton("Jump") && IsGrounded())
+        if (Input.GetButton("Jump"))
         {
+            Debug.Log("ok je saute");
+        }
+        if (Input.GetButton("Jump") && body.simulated)
+        {
+            body.simulated = false;
+            Debug.Log("ok je saute et je suis pas en l'air ");
+
             body.AddForce(Vector3.up * jumpForce);
         }
+        
 
         if (Input.GetButton("Fire1") && currentTime > currentWeapon._cooldown)
         {
