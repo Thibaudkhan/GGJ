@@ -11,6 +11,7 @@ public class playerScript : MonoBehaviour
     private BoxCollider2D boxCollider;
     private SpriteRenderer sprite;
     CharacterController controller;
+    private Animator anim;
 
     public float movementSpeed = 0.1f;
     public float jumpForce = 30f;
@@ -43,6 +44,7 @@ public class playerScript : MonoBehaviour
         boxCollider = GetComponent<BoxCollider2D>();
         sprite = GetComponent<SpriteRenderer>();
         controller = GetComponent<CharacterController>();
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -56,13 +58,19 @@ public class playerScript : MonoBehaviour
         if (hMovement > 0)
         {
             transform.position += Vector3.right * movementSpeed;
-            //sprite.flipX = true;
+            sprite.flipX = false;
+            anim.SetBool("isWalking", true);
 
         }
         else if (hMovement < 0)
         {
             transform.position += Vector3.left * movementSpeed;
-            //sprite.flipX = false;
+            sprite.flipX = true;
+            anim.SetBool("isWalking", true);
+        }
+        else
+        {
+            anim.SetBool("isWalking", false);
         }
 
         if (Input.GetButton("Jump") && (IsGrounded()) && canJump /* && currentJumpTime > jumpCooldown */)
@@ -70,17 +78,24 @@ public class playerScript : MonoBehaviour
             body.AddForce(Vector3.up * jumpForce);
         }
 
+        if (!IsGrounded())
+        {
+            anim.SetBool("isWalking", false);
+            anim.SetBool("isJumping", true);
+        }
+        else
+        {
+            anim.SetBool("isJumping", false);
+        }
+        
+
         if (Input.GetButton("Fire1") && currentTime > currentWeapon._cooldown)
-            {
+        {
+            nextHit = currentTime + currentWeapon._cooldown;
 
-                Debug.Log("Fire");
-                nextHit = currentTime + currentWeapon._cooldown;
-
-
-                nextHit = nextHit - currentTime;
-                currentTime = 0f;
-            }
-        //}
+            nextHit = nextHit - currentTime;
+            currentTime = 0f;
+        }
     }
 
     private bool IsGrounded()
@@ -102,4 +117,15 @@ public class playerScript : MonoBehaviour
         canJump = true;
         //isJumping = true;
     }
+
+    void play(string param)
+    {
+        anim.SetBool(param, true);
+    }
+
+    void disableClimbing()
+    {
+        anim.SetBool("isClimbing", false);
+    }
+
 }
