@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: LobbyProject-bis 1_0
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: -8919531521780429950, guid: 9364d7898e22fa542abe75ab0b5f476c,
+  m_Sprite: {fileID: -8919531521780429950, guid: 809b4bdcf6e47479f97014883bbfb32d,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
