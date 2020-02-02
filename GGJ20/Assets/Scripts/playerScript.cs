@@ -11,12 +11,14 @@ public class playerScript : MonoBehaviour
     private BoxCollider2D boxCollider;
     private SpriteRenderer sprite;
     CharacterController controller;
+    private Animator anim;
 
     public float movementSpeed = 0.1f;
-    public float jumpForce = 30f;
+    public float jumpForce = 60f;
 
     private float currentTime = 0.0f;
-    private float jumpCooldown = 0.6f;
+    private float currentJumpTime = 0.0f;
+    private float jumpCooldown = 3f;
 
     private float nextHit = 0.0f;
     private float nextJump = 0.0f;
@@ -27,6 +29,7 @@ public class playerScript : MonoBehaviour
     public bool isGrounded = false;
     public bool jumpStarted = false;
     public bool hasDoubleJump = true;
+    private bool canJump = true;
 
     private void OnEnable()
     {
@@ -41,50 +44,57 @@ public class playerScript : MonoBehaviour
         boxCollider = GetComponent<BoxCollider2D>();
         sprite = GetComponent<SpriteRenderer>();
         controller = GetComponent<CharacterController>();
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         currentTime += Time.deltaTime;
+        currentJumpTime += Time.deltaTime;
 
         float hMovement = Input.GetAxis("Horizontal");
 
         if (hMovement > 0)
         {
             transform.position += Vector3.right * movementSpeed;
-            //sprite.flipX = true;
+            sprite.flipX = false;
+            anim.SetBool("isWalking", true);
 
         }
-        else if (hMovement < 0){
+        else if (hMovement < 0)
+        {
             transform.position += Vector3.left * movementSpeed;
-            //sprite.flipX = false;
+            sprite.flipX = true;
+            anim.SetBool("isWalking", true);
+        }
+        else
+        {
+            anim.SetBool("isWalking", false);
         }
 
-        if (Input.GetButton("Jump") && isGrounded && !jumpStarted && currentTime > jumpCooldown) {
-            isGrounded = false;
-            jumpStarted = true;
-            nextJump = currentTime + jumpCooldown;
-            nextJump = nextJump - currentTime;
-            currentTime = 0f;
+        if ((Input.GetButtonDown("Jump") && (IsGrounded()) && canJump) || (Input.GetButtonDown("Jump") && hasDoubleJump))
+        {
+            hasDoubleJump = false;
             body.AddForce(Vector3.up * jumpForce);
         }
 
-        if (!Input.GetButton("Jump") && isGrounded)
+        if (!IsGrounded())
         {
-            jumpStarted = false;
+            anim.SetBool("isWalking", false);
+            anim.SetBool("isJumping", true);
         }
-
-        if (jumpStarted) {
-            isGrounded = false;
+        else
+        {
+            isGrounded = true;
+            hasDoubleJump = true;
+            anim.SetBool("isJumping", false);
         }
+        
 
         if (Input.GetButton("Fire1") && currentTime > currentWeapon._cooldown)
         {
-
-            Debug.Log("Fire");
             nextHit = currentTime + currentWeapon._cooldown;
-
 
             nextHit = nextHit - currentTime;
             currentTime = 0f;
@@ -93,29 +103,32 @@ public class playerScript : MonoBehaviour
 
     private bool IsGrounded()
     {
-        RaycastHit2D ray = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0f, Vector2.down, 1f, platformMask);
+        RaycastHit2D ray = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size / 2, 0f, Vector2.down, 0.5f, platformMask);
         return ray.collider != null;
     }
 
-    private void OnCollisionStay2D(Collision2D collision)
+    private void disableMovement()
     {
-        if (collision.gameObject.tag == "Platform")
-        {
-            isGrounded = true;
-        }
-        
+        canJump = false;
+        StartCoroutine(activateJump());
     }
 
-    private void OnCollisionExit2D(Collision2D collision) {
-        if (collision.gameObject.tag == "Platform") {
-            isGrounded = true;
-        }
+    IEnumerator activateJump()
+    {
+        yield return new WaitForSeconds(0.6f);
 
-        if (!hasDoubleJump) {
-            isGrounded = false;
-        }
-        else {
-            isGrounded = true;
-            }
-        }
+        canJump = true;
+        //isJumping = true;
     }
+
+    void play(string param)
+    {
+        anim.SetBool(param, true);
+    }
+
+    void disableClimbing()
+    {
+        anim.SetBool("isClimbing", false);
+    }
+
+}
