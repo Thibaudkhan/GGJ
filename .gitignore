@@ -63,3 +63,5 @@ crashlytics-build.properties
 
 
 GGJ20/Temp/
+
+*.dll
