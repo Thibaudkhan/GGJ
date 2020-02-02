@@ -14,11 +14,11 @@ public class playerScript : MonoBehaviour
     private Animator anim;
 
     public float movementSpeed = 0.1f;
-    public float jumpForce = 30f;
+    public float jumpForce = 60f;
 
     private float currentTime = 0.0f;
     private float currentJumpTime = 0.0f;
-    private float jumpCooldown = 0.6f;
+    private float jumpCooldown = 3f;
 
     private float nextHit = 0.0f;
     private float nextJump = 0.0f;
@@ -48,7 +48,7 @@ public class playerScript : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         currentTime += Time.deltaTime;
         currentJumpTime += Time.deltaTime;
@@ -73,8 +73,9 @@ public class playerScript : MonoBehaviour
             anim.SetBool("isWalking", false);
         }
 
-        if (Input.GetButton("Jump") && (IsGrounded()) && canJump /* && currentJumpTime > jumpCooldown */)
+        if ((Input.GetButtonDown("Jump") && (IsGrounded()) && canJump) || (Input.GetButtonDown("Jump") && hasDoubleJump))
         {
+            hasDoubleJump = false;
             body.AddForce(Vector3.up * jumpForce);
         }
 
@@ -85,6 +86,8 @@ public class playerScript : MonoBehaviour
         }
         else
         {
+            isGrounded = true;
+            hasDoubleJump = true;
             anim.SetBool("isJumping", false);
         }
         
