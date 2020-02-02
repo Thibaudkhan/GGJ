@@ -18,7 +18,7 @@ public class Dialogue : MonoBehaviour
     void Start()
     {
         
-        myRandConv =Random.Range(0, 3);
+        myRandConv =Random.Range(0, 2);
         GameObject thePlayer = GameObject.Find("Pnj");
         pnjController = thePlayer.GetComponent<PnjController>();
         text = GameObject.Find("conversationsText");
@@ -34,7 +34,7 @@ public class Dialogue : MonoBehaviour
     public void ActiveDialogue()
     {
             conversationObject.SetActive(true);
-            myRandConv = Random.Range(0, 3);
+            myRandConv = Random.Range(0, 2);
             conversationText.text = pnjController.myConversations[myRandConv] ;
             Debug.Log("nb" + myRandConv + " text" + conversationText.text);
 

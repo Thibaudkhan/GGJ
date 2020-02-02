@@ -1,5 +1,8 @@
-﻿using System;
-public class Weapon_Model
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using System;
+public class Weapon_Model : MonoBehaviour
 {
     public String _name;
     public int _damages;
