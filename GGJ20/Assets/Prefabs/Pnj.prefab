@@ -194,7 +194,8 @@ MonoBehaviour:
   - Ouiiii
   - Je ne sais pas je ne sais plus ...
   - "Le m\xE9chant a un enfant "
-  gameObject: {fileID: 0}
+  gameObject: {fileID: 2464340088015008127, guid: e3b383a6867c3314484676e2cce49503,
+    type: 3}
 --- !u!114 &9163406937381108781
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -209,4 +210,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   life: 10
   gold: 50
-  gameObject: {fileID: 0}
+  gameObject: {fileID: 2464340088015008127, guid: e3b383a6867c3314484676e2cce49503,
+    type: 3}

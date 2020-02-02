@@ -8,10 +8,14 @@ public class PnjController : MonoBehaviour
 
     Dialogue dialogue;
     public GameObject gameObject;
+    public GameObject weaponsInventory;
+
+    Weapon_Model weapon_Model;
 
     // Start is called before the first frame update
     void Start()
     {
+        weapon_Model = weaponsInventory.GetComponent<Weapon_Model>();
         dialogue = gameObject.GetComponent<Dialogue>();
     }
 
@@ -21,14 +25,15 @@ public class PnjController : MonoBehaviour
 
     }
 
-    void OnCollisionEnter2D(Collision2D col)
+    void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.name == "Player" )
         {
             dialogue.ActiveDialogue();
+            Repare();
         }
     }
-    void OnCollisionExit2D(Collision2D col)
+    void OnTriggerExit2D(Collider2D col)
     {
         if (col.gameObject.name == "Player")
         {
@@ -36,4 +41,10 @@ public class PnjController : MonoBehaviour
         }
     }
 
+    void Repare()
+    {
+        Debug.Log("pourquoi");
+        //weapon_Model._isBroken = true;
+        //Debug.Log(weapon_Model._isBroken + " et le nom "+ weapon_Model._name);
+    }
 }
