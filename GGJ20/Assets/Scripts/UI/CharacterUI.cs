@@ -16,11 +16,11 @@ public class CharacterUI : MonoBehaviour
         GameObject thePlayer = GameObject.Find("Player");
         characterController = thePlayer.GetComponent<CharacterController>();
         text = GameObject.Find("lifeText");
-        lifeText = text.GetComponent<Text>();
-        lifeText.text = characterController.life.ToString() + " Hp";
+        //lifeText = text.GetComponent<Text>();
+        //lifeText.text = characterController.life.ToString() + " Hp";
         text = GameObject.Find("goldText");
-        goldText = text.GetComponent<Text>();
-        goldText.text = characterController.gold.ToString() + " Po";
+        //goldText = text.GetComponent<Text>();
+        //goldText.text = characterController.gold.ToString() + " Po";
     }
 
     // Update is called once per frame
