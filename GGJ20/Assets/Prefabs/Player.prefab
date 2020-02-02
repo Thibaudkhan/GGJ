@@ -206,8 +206,11 @@ MonoBehaviour:
   platformMask:
     serializedVersion: 2
     m_Bits: 256
+  player: {fileID: 0}
+  weaponInventory: {fileID: 0}
   movementSpeed: 0.1
-  jumpForce: 170
+  jumpForce: 300
+  tempX: 0
   isGrounded: 0
   jumpStarted: 0
   hasDoubleJump: 1
