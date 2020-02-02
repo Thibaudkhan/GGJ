@@ -6,6 +6,12 @@ TagManager:
   tags:
   - Platform
   - Pnj
+  - Enemy
+  - poing
+  - katana
+  - gun
+  - laser
+  - laser_fist
   layers:
   - Default
   - TransparentFX
