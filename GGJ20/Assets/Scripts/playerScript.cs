@@ -32,7 +32,7 @@ public class playerScript : MonoBehaviour {
     private float nextJump = 0.0f;
 
     private List<Weapon_Model> weaponList = new List<Weapon_Model>();
-    private Weapon_Model currentWeapon;
+    public Weapon_Model currentWeapon;
 
     public bool isGrounded = false;
     public bool jumpStarted = false;
@@ -46,7 +46,7 @@ public class playerScript : MonoBehaviour {
     private BoxCollider2D boxCollider2D;
 
     private void OnEnable() {
-        weaponList.Add(new Weapon_Model("poing", 1, 5, 0.6f, false));
+        weaponList.Add(new Weapon_Model("poing", 1, 1, 0.6f, false));
         currentWeapon = weaponList[0];
         }
 
@@ -133,7 +133,7 @@ public class playerScript : MonoBehaviour {
         /*** Combat ***/
 
 
-        if (Input.GetKeyDown(KeyCode.T) && currentTime > currentWeapon._cooldown) {
+        if (Input.GetButton("Fire1") && currentTime > currentWeapon._cooldown) {
             nextHit = currentTime + currentWeapon._cooldown;
             nextHit = nextHit - currentTime;
             currentTime = 0f;
@@ -141,8 +141,6 @@ public class playerScript : MonoBehaviour {
 
             fight = GameObject.FindGameObjectWithTag(currentWeapon._name);
             boxCollider2D = fight.GetComponent<BoxCollider2D>();
-
-            ActiveFrameBoxCollider(currentWeapon._frame_active);
             boxCollider2D.enabled = true;
             boxCollider2D.transform.position = new Vector3(player.transform.position.x, player.transform.position.y, 0);
             StartCoroutine(disableCollider());
@@ -153,7 +151,7 @@ public class playerScript : MonoBehaviour {
 
 
     private bool IsGrounded() {
-        RaycastHit2D ray = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size / 2, 0f, Vector2.down, 0.5f, platformMask);
+        RaycastHit2D ray = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size / 2, 0f, Vector2.down, 0.4f, platformMask);
         return ray.collider != null;
         }
 
@@ -178,9 +176,6 @@ public class playerScript : MonoBehaviour {
         }
 
 
-    private void ActiveFrameBoxCollider(int ActivateFrame) {
-
-        }
 
     private void OnCollisionStay2D(Collision2D collision) {
         if (collision.gameObject.tag == "Platform") {
@@ -202,18 +197,14 @@ public class playerScript : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision) {
         Debug.Log(collision.gameObject.name);
-        if (collision.gameObject.CompareTag("Enemy") && Input.GetKey(KeyCode.T)) {
-            Debug.Log("dsfsdf");
+        if (collision.gameObject.CompareTag("Enemy") && Input.GetButton("Fire1")) {
             collision.gameObject.GetComponent<EnemyScript>().CheckIfDie(currentWeapon._damages);
             }
 
         }
 
-
-
     IEnumerator disableCollider() {
         yield return new WaitForSeconds(currentWeapon._frame_active);
-        Debug.Log("lolol");
         boxCollider2D.transform.position = new Vector3(-999, 0, 0);
         boxCollider2D.enabled = false;
         }
