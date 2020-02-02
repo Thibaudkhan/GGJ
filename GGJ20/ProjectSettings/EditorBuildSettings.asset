@@ -11,6 +11,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Lobby.unity
     guid: 16fe1d0e3d08eed49a9d71a13309fc4d
+  - enabled: 1
+    path: Assets/Scenes/Episode 1 London.unity
+    guid: aea9d01b82e632c42a25a222461a862e
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: c4238c44f002849faba3a428296714ca,
       type: 2}
